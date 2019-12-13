@@ -44,8 +44,27 @@
           `;
   }
 
+  const updateState = (e) => {
+    const target = e.target.getAttribute('data-type');
+    target === 'odd'
+        ? state.counter.odd += 2
+        : state.counter.even += 2;
+
+    const id = state.counter[target];
+
+    fetchData(`${API_URL}/posts/${id}`)
+        .then(function (json) {
+          state.description = json.body;
+
+          renderScreen(state);
+        })
+  };
+
   const renderScreen = (state) => {
     app.innerHTML = screenTemplate(state);
+
+    const controls = app.querySelector(`.controls`);
+    controls.addEventListener("click", updateState);
   };
 
   renderScreen(initialState);
