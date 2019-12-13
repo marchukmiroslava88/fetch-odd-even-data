@@ -32,6 +32,17 @@
     description: 'Выберите вариант'
   };
 
+  const screenTemplate = (state) => {
+    return `<div class="wrap">
+            <p>${state.description}</p>
+            <div class="result"></div>
+            <div class="controls">
+              <button class="btn" data-type="odd">Вариант 1</button>
+              <button class="btn" data-type="even">Вариант 2</button>
+            </div>
+          </div>
+          `;
+  }
 
 </script>
 </html>
