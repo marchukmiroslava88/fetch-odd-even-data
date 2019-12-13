@@ -44,5 +44,12 @@
           `;
   }
 
+  const renderScreen = (state) => {
+    app.innerHTML = screenTemplate(state);
+  };
+
+  renderScreen(initialState);
+
+
 </script>
 </html>
